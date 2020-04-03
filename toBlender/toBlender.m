@@ -2,8 +2,7 @@ function [sys,x0,str,ts,simStateCompliance] = toBlender(t,x,u,flag,n,cachetimes)
 
 % n: dimension of u
 % cachetimes : declare how many times prevous data should be stored 
-% name :define data name in the base workplace
-% frameRate: it is equal to blender settings in render panel
+
 
 switch flag,
 
@@ -38,7 +37,7 @@ function [sys,x0,str,ts,simStateCompliance]=mdlInitializeSizes(n,cachetimes)
 
     port = 20208;           % port address is the same of blender
     
-    outTime = 5;            % in client, Seconds to wait to receive data
+    outTime = 5;            % in client, Seconds of waiting to receive data
     
     InputBufferSize=512;    %if you dont know, this is ok
     
@@ -108,7 +107,7 @@ function [sys,x0,str,ts,simStateCompliance]=mdlInitializeSizes(n,cachetimes)
 
 %get sample time about frame
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% frameRate: it is equal to blender settings in render panel
     frameRate = tcpRecvInt(2);
     fprintf('frameRate: %d \r',frameRate);
     ts = 1/frameRate;
@@ -224,7 +223,8 @@ function sys=mdlTerminate(t,x,u)
 
 % end mdlTerminate
 
-% read int form 0 to 999
+% read int that denpen on your size.if size=1,it is integer of 0~9
+% if size=2,it is integer of 0~99
 function value=tcpRecvInt(size)
     global client_tcp;
     a = fread(client_tcp,size,'char');
