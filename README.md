@@ -1,7 +1,20 @@
-# matlab-to-blender
-send data from simulink to blender
-# development version
-blender : 2.81
+## matlab-to-blender
+send data from simulink to blender;
+将simulink中的数据传入blender中。
+## 软件版本
+blender : 2.83
 matlab  : 2016b
-# toBlender
-使用在simulink中使用 s-function 模块将 toBlender.m 导入，具体参数配置请看 example.slx
+
+![matlab](picture/block.png)
+
+![blender](picture/blender.png)
+
+
+## 使用方法
+
+simulink:
+* 方法一：直接将block.slx中的节点拷贝出来，然后直接使用；
+* 方法二：将library文件夹中的内容生成simulink自带的[库模块](https://zhidao.baidu.com/question/1445761744982783980.html)
+
+blender:
+安装插件
